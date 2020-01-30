@@ -17,12 +17,21 @@ public class Main {
                 if (expr == 0) {
                     break;
                 }
-                double result = sqrt(expr);
-                System.out.println("Квадратный корень числа: " + expr + "=" + result);
+                if (expr < 0) {
+                    throw new Exception();
 
+                }
+                double result = sqrt(expr);
+                System.out.println("Квадратный корень числа: " + expr + "  =  " + result+"\n");
+
+            } catch (InputMismatchException e) {
+
+                System.out.println("Это не число:      "+e.getMessage()+"    "+e.getStackTrace()[2]);
+                System.out.println("Попробуй снова: "+"\n");
             } catch (Exception e) {
-                System.out.println("Плохое выражение: "+e.getMessage());
-                System.out.println("Попробуй снова: ");
+                //e.printStackTrace();
+                System.out.println("Введено отрицательное число :     "+e.getMessage()+"    "+e.getStackTrace()[0]);
+                System.out.println("Попробуй снова: "+"\n");
 
 
 
